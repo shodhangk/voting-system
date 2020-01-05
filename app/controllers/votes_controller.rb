@@ -1,12 +1,11 @@
 class VotesController < ApplicationController
 
     def create
-        byebug
-        vote_validator = VoteValidator.call(@currrent_user, voter_params)
+        vote_validator = VoteValidator.call(@current_user, voter_params)
         if vote_validator.success?
          create_response("Success", 200)
         else
-            create_response(vote_validator.errors, 401)
+            create_response(vote_validator.errors, 400)
         end
     end
    

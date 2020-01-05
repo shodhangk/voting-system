@@ -9,7 +9,7 @@ class AuthenticateUser
   end
 
   def call
-    [JsonWebToken.encode(user_id: user.id), user.instance_of?(Admin)] if user
+    [JsonWebToken.encode(phone: user.phone), user.instance_of?(Admin)] if user
   end
 
   private

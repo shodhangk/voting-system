@@ -15,6 +15,6 @@ class Election < ApplicationRecord
   end
 
   def active?
-    start_time < Time.now && Time.now > end_time
+    start_time < Time.now && Time.now < end_time
   end
 end

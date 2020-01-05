@@ -3,6 +3,7 @@ class VoteValidator
 
   def initialize(user, params)
     @voter = user
+    @params = params
     @candidate_id = params[:candidate_id]
     @election = Election.find_by_id(params[:election_id])
   end
@@ -14,7 +15,7 @@ class VoteValidator
 
   private
 
-  attr_reader :voter, :candidate_id, :election
+  attr_reader :voter, :candidate_id, :election, :params
 
   def validate_vote
     valid_election? && valid_condidate? && already_voted?
@@ -33,7 +34,6 @@ class VoteValidator
   end
 
   def already_voted?
-    byebug
     return true if voter.votes.where(candidate_id: election.candidates.pluck(:id)).last.blank?
     errors.add(:Voted, 'You already voted') && nil
     false
