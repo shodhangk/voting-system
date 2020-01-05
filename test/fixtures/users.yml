@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  gender: MyString
+  age: 1
+  ward: MyString
+  voter_id: MyString
+  phone: MyString
+  adhar_number: MyString
+
+two:
+  name: MyString
+  gender: MyString
+  age: 1
+  ward: MyString
+  voter_id: MyString
+  phone: MyString
+  adhar_number: MyString
