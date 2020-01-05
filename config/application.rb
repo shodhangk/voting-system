@@ -9,7 +9,7 @@ Bundler.require(*Rails.groups)
 module Evaluation201920Shodhangk
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.0
+    config.load_defaults 5.2
     config.autoload_paths << Rails.root.join('lib')
     routes.default_url_options[:host] = 'localhost:3000'
     # Settings in config/environments/* take precedence over those specified here.
