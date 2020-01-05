@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
-
+    before_action :authenticate_voter
+    
     def create
         vote_validator = VoteValidator.call(@current_user, voter_params)
         if vote_validator.success?

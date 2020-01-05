@@ -18,6 +18,10 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_admin
-    create_response('User not authorized to peform this action', 401) unless admin?
+    create_response('User is not authorized to peform this action', 401) unless admin?
+  end
+
+  def authenticate_voter
+    create_response('Admin is not authorized to peform this action', 401) if admin?
   end
 end
