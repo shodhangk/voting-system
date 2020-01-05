@@ -17,7 +17,7 @@ class User < ApplicationRecord
   before_create :generate_verification_token
 
   def profile_url
-    attachment_url(profile)
+    attachment_url(profile) 
   end
 
   def age_atleast_should_be_18

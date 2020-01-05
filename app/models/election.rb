@@ -6,6 +6,10 @@ class Election < ApplicationRecord
 
   validate :end_date_is_after_start_date
 
+  IN_ACTIVE = "in_active".freeze
+  ACTIVE = 'active'.freeze
+  FINISHED = 'finished'.freeze
+
   def end_date_is_after_start_date
     return if end_time.blank? || start_time.blank?
 
@@ -15,6 +19,16 @@ class Election < ApplicationRecord
   end
 
   def active?
-    start_time < Time.now && Time.now < end_time
+    status == ACTIVE
+  end
+
+  def status
+    if Time.now < start_time
+      return IN_ACTIVE
+    elsif Time.now > end_time
+      return FINISHED
+    else
+      return ACTIVE
+    end
   end
 end

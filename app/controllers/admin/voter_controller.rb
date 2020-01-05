@@ -18,7 +18,7 @@ class Admin::VoterController < ApplicationController
   private
 
   def voter_params
-    params.require(:voter).permit(voter_attributes)
+    params.require(:voter).permit(voter_attributes.push(:profile))
   end
 
   def voter_attributes
